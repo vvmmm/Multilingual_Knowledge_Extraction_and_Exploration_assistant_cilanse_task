@@ -28,7 +28,7 @@ This application is designed to help users **interactively explore handwritten t
 | OCR Input              | Parsed `.txt` files                    | Handwritten content digitized externally      |
 | Vector Store           | [ChromaDB](https://www.trychroma.com/) | Fast semantic search                          |
 | Embeddings             | Google Gemini Embeddings (`embedding-001`) | Multilingual chunk encoding              |
-| LLM for QA             | Gemini Pro (`gemini-2.0-pro`)         | Question answering based on context chunks    |
+| LLM for QA             | Gemini Pro (`gemini-2.0-flash-exp`)         | Question answering based on context chunks    |
 | Prompt Design          | LangChain PromptTemplate               | Prompt engineering for accurate QA            |
 | Chunking               | RecursiveCharacterTextSplitter         | Adaptive chunk creation from structured text  |
 
