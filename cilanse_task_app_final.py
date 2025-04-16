@@ -69,7 +69,7 @@ if vectorstore._collection.count() == 0:
 retriever = vectorstore.as_retriever()
 
 # -------------- LLM Setup
-llm = ChatGoogleGenerativeAI(api_key=API_KEY, model="gemini-2.0-pro")
+llm = ChatGoogleGenerativeAI(api_key=API_KEY, model="gemini-2.0-flash-exp")
 
 PROMPT_TEMPLATE = """
 You're an assistant helping users explore knowledge from a digitized textbook.
