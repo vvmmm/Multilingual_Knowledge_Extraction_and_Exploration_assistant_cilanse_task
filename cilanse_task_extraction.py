@@ -10,8 +10,8 @@ from PIL import Image
 
 # -----------------------------
 # CONFIG
-pdf_path = "005A Kamandakya - Nitisara english translation-1-50 (1).pdf"
-output_dir = "output_cilanse"
+pdf_path = "./005A Kamandakya - Nitisara english translation-1-50 (1).pdf"
+output_dir = "./output_cilanse"
 lang_code = "guj+san+eng"  # Gujarati + Sanskrit + English
 
 os.makedirs(output_dir, exist_ok=True)

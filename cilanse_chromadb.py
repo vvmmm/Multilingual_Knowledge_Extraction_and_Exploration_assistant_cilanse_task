@@ -7,7 +7,7 @@ import os
 # ----------------------------
 # Load OCR extracted text files
 loader = DirectoryLoader(
-    "output_cilanse",  # OCR text output folder
+    "./output_cilanse",  # OCR text output folder
     glob="*.txt",
     show_progress=True,
     loader_cls=lambda path: TextLoader(path, encoding="utf-8")
@@ -36,7 +36,7 @@ embeddings = GoogleGenerativeAIEmbeddings(
 # ----------------------------
 # Initialize Chroma DB
 db = Chroma(
-    collection_name="cilans_vector_db",
+    collection_name="./cilans_vector_db",
     embedding_function=embeddings,
     persist_directory="./chroma_db_cilans"
 )
