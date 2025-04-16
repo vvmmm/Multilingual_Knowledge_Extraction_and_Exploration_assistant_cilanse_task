@@ -142,12 +142,6 @@
 
 
 
-# -------------- Fix ChromaDB SQLite issue with pysqlite3
-import sys
-import importlib
-sys.modules["sqlite3"] = importlib.import_module("pysqlite3")
-
-# -------------- Imports
 import os
 import json
 import streamlit as st
@@ -157,6 +151,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from chromadb.config import Settings  # Import the Settings class
 
 # -------------- Streamlit Config (MUST BE FIRST)
 st.set_page_config(page_title="📚 Knowledge Assistant", layout="wide")
@@ -202,7 +197,19 @@ def chunk_documents(documents):
 
 # -------------- Vector DB & Embeddings
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=API_KEY)
-vectorstore = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
+
+# Create client settings for Chroma
+client_settings = Settings(
+    persist_directory=CHROMA_PATH,
+    anonymized_telemetry=False
+)
+
+# Initialize Chroma with client settings and embedding function
+vectorstore = Chroma(
+    client_settings=client_settings,
+    embedding_function=embeddings,
+    persist_directory=CHROMA_PATH,
+)
 
 # Embed only if vectorstore is empty
 if vectorstore._collection.count() == 0:
