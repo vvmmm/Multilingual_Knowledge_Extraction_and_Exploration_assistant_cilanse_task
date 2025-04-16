@@ -24,10 +24,10 @@ google-generativeai==0.4.1
 python-dotenv==1.0.1
 
 # Utility
-rich==14.0.0
-markdown-it-py==3.0.0
-mdurl==0.1.2
-pygments==2.19.1
+rich
+markdown-it-py
+mdurl
+pygments
 
 # Others
-numpy==1.26.4
+numpy
