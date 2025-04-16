@@ -141,14 +141,16 @@
 #                         st.markdown(line)
 
 
+
+
 import os
 import json
 import streamlit as st
-from langchain.vectorstores import Chroma
 from langchain.embeddings import GoogleGenerativeAIEmbeddings
-from langchain.chat_models import ChatGoogleGenerativeAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.output_parsers import StrOutputParser
+from langchain.vectorstores import Chroma
+from langchain_community.llms import ChatGoogleGenerativeAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
@@ -213,7 +215,7 @@ if vectorstore._collection.count() == 0:
 retriever = vectorstore.as_retriever()
 
 # -------------- LLM Setup
-llm = ChatGoogleGenerativeAI(api_key=API_KEY, model="gemini-2.0")  # Use a valid model name
+llm = ChatGoogleGenerativeAI(api_key=API_KEY, model="gemini-2.0-flash-exp")
 
 PROMPT_TEMPLATE = """
 You're an assistant helping users explore knowledge from a digitized textbook.
