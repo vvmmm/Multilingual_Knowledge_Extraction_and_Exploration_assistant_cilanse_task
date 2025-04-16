@@ -13,7 +13,7 @@ st.set_page_config(page_title="📚 Knowledge Assistant", layout="wide")
 st.title("📚 Multilingual Knowledge Extraction & Exploration Assistant")
 
 # -------------- Config
-CHROMA_PATH = "chroma_db_cilans"
+CHROMA_PATH = "chroma_db_cilans/"
 OCR_TEXT_DIR = "./cleaned_output_cilanse"
 API_KEY_PATH = "./API_GEMINI.txt"
 
