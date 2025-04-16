@@ -141,17 +141,16 @@
 #                         st.markdown(line)
 
 
-
 import os
 import json
 import streamlit as st
 from langchain.vectorstores import Chroma
-from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
+from langchain.embeddings import GoogleGenerativeAIEmbeddings
+from langchain.chat_models import ChatGoogleGenerativeAI
+from langchain.prompts import ChatPromptTemplate
+from langchain.output_parsers import StrOutputParser
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from chromadb.config import Settings  # Import the Settings class
 
 # -------------- Streamlit Config (MUST BE FIRST)
 st.set_page_config(page_title="📚 Knowledge Assistant", layout="wide")
@@ -197,19 +196,7 @@ def chunk_documents(documents):
 
 # -------------- Vector DB & Embeddings
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=API_KEY)
-
-# Create client settings for Chroma
-client_settings = Settings(
-    persist_directory=CHROMA_PATH,
-    anonymized_telemetry=False
-)
-
-# Initialize Chroma with client settings and embedding function
-vectorstore = Chroma(
-    client_settings=client_settings,
-    embedding_function=embeddings,
-    persist_directory=CHROMA_PATH,
-)
+vectorstore = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
 
 # Embed only if vectorstore is empty
 if vectorstore._collection.count() == 0:
@@ -226,7 +213,7 @@ if vectorstore._collection.count() == 0:
 retriever = vectorstore.as_retriever()
 
 # -------------- LLM Setup
-llm = ChatGoogleGenerativeAI(api_key=API_KEY, model="gemini-2.0-flash-exp")
+llm = ChatGoogleGenerativeAI(api_key=API_KEY, model="gemini-2.0")  # Use a valid model name
 
 PROMPT_TEMPLATE = """
 You're an assistant helping users explore knowledge from a digitized textbook.
