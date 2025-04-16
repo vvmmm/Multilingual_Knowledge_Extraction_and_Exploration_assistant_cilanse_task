@@ -31,3 +31,4 @@ pygments==2.19.1
 
 # Others
 numpy
+pysqlite3-binary==0.5.2.post2
