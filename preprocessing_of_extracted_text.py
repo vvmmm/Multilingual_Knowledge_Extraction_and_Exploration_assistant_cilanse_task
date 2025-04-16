@@ -1,8 +1,8 @@
 import os
 import re
 
-input_dir = r"D:\PROGRAMS\python\streamlit\cilans_env\output_cilanse"
-output_dir = r"D:\PROGRAMS\python\streamlit\cilans_env\cleaned_output_cilanse"
+input_dir = r"output_cilanse"
+output_dir = r"cleaned_output_cilanse"
 os.makedirs(output_dir, exist_ok=True)
 
 def clean_text(text):

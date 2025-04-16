@@ -7,7 +7,7 @@ import os
 # ----------------------------
 # Load OCR extracted text files
 loader = DirectoryLoader(
-    "D:/PROGRAMS/python/streamlit/cilans_env/output_cilanse",  # OCR text output folder
+    "output_cilanse",  # OCR text output folder
     glob="*.txt",
     show_progress=True,
     loader_cls=lambda path: TextLoader(path, encoding="utf-8")
