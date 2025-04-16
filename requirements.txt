@@ -14,11 +14,16 @@ layoutparser==0.3.4
 chromadb==0.4.24
 sentence-transformers==2.2.2
 
-# LangChain + Google Gemini
-langchain==0.1.13
+
 langchain-community>=0.0.29,<0.1
-langchain-google-genai==0.0.9
+
 google-generativeai==0.3.2  # ✅ Compatible version
+
+langchain>=0.0.180
+langchain-google-genai>=0.0.1
+chromadb>=0.3.0
+pydantic>=1.10.0
+streamlit>=1.16.0
 
 # Environment Variables
 python-dotenv==1.0.1
