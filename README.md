@@ -1,0 +1,2 @@
+# Multilingual_Knowledge_Extraction_and_Exploration_assistant_cilanse_task
+This Streamlit-based application enables intelligent exploration of digitized handwritten multilingual textbooks. It uses OCR-parsed .txt content to build a structured knowledge base that allows users to:🔍 Search by Keyword💬 Ask Questions (LLM-powered)📚 Structured Display🌐 Multilingual Support🧹 Smart Filtering,ChromaDB , Gemini Pro. 
